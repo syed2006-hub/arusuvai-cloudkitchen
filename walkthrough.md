@@ -38,6 +38,9 @@ We have successfully restructured the single-page application into a fully-fledg
 
 ### 4. Interactive UX & Complete Mobile Responsiveness
 We have refined all pages and elements to ensure a flawless mobile experience:
+- **Strict 10px-15px Header Clearance Spacing (All Inner Pages)**:
+  - Added inline style overrides (`style={{ paddingTop: '10px' }}`) to the starting sections of all inner components ([About.jsx](file:///C:/Users/Dell/.gemini/antigravity/scratch/arusuvai-kitchen/src/components/About.jsx), [Contact.jsx](file:///C:/Users/Dell/.gemini/antigravity/scratch/arusuvai-kitchen/src/components/Contact.jsx), [OrderForm.jsx](file:///C:/Users/Dell/.gemini/antigravity/scratch/arusuvai-kitchen/src/components/OrderForm.jsx), [EventsPage.jsx](file:///C:/Users/Dell/.gemini/antigravity/scratch/arusuvai-kitchen/src/pages/EventsPage.jsx), [PrivacyPage.jsx](file:///C:/Users/Dell/.gemini/antigravity/scratch/arusuvai-kitchen/src/pages/PrivacyPage.jsx), [TermsPage.jsx](file:///C:/Users/Dell/.gemini/antigravity/scratch/arusuvai-kitchen/src/pages/TermsPage.jsx)).
+  - This overrides the default CSS `.sec` top padding of `80px` down to `10px`, which positions page title blocks and forms immediately below the navbar with a clean 10px to 15px gap.
 - **Reduced Top Spacing on All Inner Pages**:
   - Decreased the top page padding on all secondary routes (`/menu`, `/events`, `/about`, `/contact`, `/order`, `/privacy`, `/terms`) from `100px`/`120px` down to a compact `70px`. This positions the headers and layouts directly beneath the fixed site navbar without placing excessive gaps or white space.
 - **Events Page Restructured (Form at the Top)**:
@@ -136,7 +139,7 @@ We have refined all pages and elements to ensure a flawless mobile experience:
   - Dynamically hides the floating cart bar on the checkout/order page (`/order`) itself via `useLocation` to avoid duplicate layouts.
 - **Horizontal Scroll Gap Elimination**:
   - Bound the general document width by declaring `overflow-x: hidden` and `width: 100%` on both `html` and `body` CSS tags.
-  - Added `overflow: hidden` to the `.hero` section container to clip the animated floating icons (`i1`, `i2`, `i3`) when their orbiting paths extend slightly beyond the right border of the viewport, completely removing the right side whitespace gap.
+  - Added `overflow: hidden` to the `.hero` section container to clip the animated floating icons (`i1', `i2', `i3') when their orbiting paths extend slightly beyond the right border of the viewport, completely removing the right side whitespace gap.
 - **Floating WhatsApp FAB Adjustment**:
   - The WhatsApp FAB button (`.wa-fab`) dynamically receives a `.cart-visible` class when items are added to the cart.
   - Using a smooth CSS transition, the button floats up cleanly **above the bottom cart tray** (sliding up to `96px` on desktop and `84px` on mobile), ensuring it never blocks checkout buttons.
@@ -175,8 +178,8 @@ npm run build
   - `dist/assets/about-kitchen-uwkkuY_E.jpg` (165.81 kB)
   - `dist/assets/hero-thali-BqTO1zBI.jpg` (319.81 kB)
   - `dist/assets/menu_hero_dosa-BM8OOted.png` (583.65 kB)
-  - `dist/assets/index-VWLXXTcK.css` (29.29 kB)
-  - `dist/assets/index-CZDOUSAH.js` (304.20 kB)
+  - `dist/assets/index-DA5oRJRw.css` (29.28 kB)
+  - `dist/assets/index-j1Szt_-t.js` (304.32 kB)
 
 ---
 
