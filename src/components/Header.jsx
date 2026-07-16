@@ -34,7 +34,7 @@ export default function Header() {
         <nav className="links">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/menu">Menu</NavLink>
-          <NavLink to="/catering">Catering</NavLink>
+          <NavLink to="/events">Events</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/order">Order</NavLink>
           <NavLink to="/contact">Contact</NavLink>
@@ -83,7 +83,7 @@ export default function Header() {
         <div className="mobile-links">
           <NavLink to="/" onClick={closeMenu}>Home</NavLink>
           <NavLink to="/menu" onClick={closeMenu}>Menu</NavLink>
-          <NavLink to="/catering" onClick={closeMenu}>Catering</NavLink>
+          <NavLink to="/events" onClick={closeMenu}>Events</NavLink>
           <NavLink to="/about" onClick={closeMenu}>About</NavLink>
           <NavLink to="/order" onClick={closeMenu}>Order</NavLink>
           <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>

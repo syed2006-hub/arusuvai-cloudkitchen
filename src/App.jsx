@@ -9,11 +9,13 @@ import WelcomeSplash from './components/WelcomeSplash';
 // Pages
 import Home from './pages/Home';
 import MenuPage from './pages/MenuPage';
-import CateringPage from './pages/CateringPage';
 import AboutPage from './pages/AboutPage';
+import EventsPage from './pages/EventsPage';
 import FAQPage from './pages/FAQPage';
 import ContactPage from './pages/ContactPage';
 import OrderPage from './pages/OrderPage';
+import PrivacyPage from './pages/PrivacyPage';
+import TermsPage from './pages/TermsPage';
 
 // Scroll reveal observer and route navigation reset
 function ScrollToTopAndReveal() {
@@ -73,7 +75,7 @@ function AppContent() {
           });
         }
         setSplashState('transitioning');
-      }, 2000);
+      }, 2000); // Increased welcome delay by 0.5s (from 2.0s to 2.5s)
 
       return () => clearTimeout(transTimer);
     }
@@ -105,13 +107,16 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Home splashDone={splashState === 'done'} />} />
         <Route path="/menu" element={<MenuPage />} />
-        <Route path="/catering" element={<CateringPage />} />
+        <Route path="/catering" element={<Navigate to="/events" replace />} />
+        <Route path="/events" element={<EventsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/delivery" element={<Navigate to="/" replace />} />
         <Route path="/gallery" element={<Navigate to="/" replace />} />
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/order" element={<OrderPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/terms" element={<TermsPage />} />
       </Routes>
 
       {/* Footer Section */}

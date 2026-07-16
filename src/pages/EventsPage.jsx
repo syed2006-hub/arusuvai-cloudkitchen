@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function CateringPage() {
+export default function EventsPage() {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -17,7 +17,7 @@ export default function CateringPage() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    document.title = "Catering & Bulk Orders — Arusuvai CloudKitchen";
+    document.title = "Events & Bulk Orders — Arusuvai CloudKitchen";
   }, []);
 
   const handlePhoneChange = (e) => {
@@ -45,7 +45,7 @@ export default function CateringPage() {
     if (!formData.date) tempErrors.date = 'Event date is required';
     const guestNum = parseInt(formData.guests);
     if (!formData.guests || isNaN(guestNum) || guestNum < 15) {
-      tempErrors.guests = 'Minimum count for catering is 15 plates';
+      tempErrors.guests = 'Minimum count for events is 15 plates';
     } else if (guestNum > 150) {
       tempErrors.guests = 'Maximum capacity is 150 plates';
     }
@@ -58,7 +58,7 @@ export default function CateringPage() {
     if (!validate()) return;
 
     // Format text message for WhatsApp with bold headings
-    const text = `New Catering / Bulk Enquiry — Arusuvai CloudKitchen%0A%0A` +
+    const text = `New Events / Bulk Enquiry — Arusuvai CloudKitchen%0A%0A` +
                  `*Name:* ${encodeURIComponent(formData.name)}%0A` +
                  `*Phone:* ${encodeURIComponent(formData.phone)}%0A` +
                  `*WhatsApp:* ${encodeURIComponent(formData.whatsapp)}%0A` +
@@ -81,7 +81,7 @@ export default function CateringPage() {
       <section className="sec" style={{ paddingBottom: '40px' }}>
         <div className="wrap">
           <div className="sec-head">
-            <div className="eyebrow">Function Catering</div>
+            <div className="eyebrow">Events & Catering</div>
             <h2>Bulk orders & events <span className="italic">undertaken.</span></h2>
             <p className="lede" style={{ marginTop: '12px', maxWidth: '700px' }}>
               We undertake catering orders from **15 to 150 plates** for poojas, birthdays, family gatherings, corporate lunches, and housewarming functions. Prepared in home kitchen hygiene, packaged securely, and delivered fresh to your venue.
@@ -113,10 +113,10 @@ export default function CateringPage() {
           </div>
 
           <div className="order-grid">
-            {/* Catering Form */}
+            {/* Events Form */}
             <div>
               {!submitted ? (
-                <form id="cateringForm" onSubmit={handleSubmit} noValidate>
+                <form id="eventsForm" onSubmit={handleSubmit} noValidate>
                   <div className="field-row">
                     <div className="field">
                       <label htmlFor="name">Your name</label>
@@ -215,7 +215,7 @@ export default function CateringPage() {
                   </div>
                   
                   <button type="submit" className="btn btn-primary submit-btn">
-                    Send Catering Inquiry on WhatsApp →
+                    Send Events Inquiry on WhatsApp →
                   </button>
                 </form>
               ) : (
@@ -223,7 +223,7 @@ export default function CateringPage() {
                   <div className="check-circle">✓</div>
                   <h3 style={{ marginBottom: '8px' }}>Enquiry prepared!</h3>
                   <p style={{ color: 'var(--ink-soft)', fontSize: '14.5px', margin: '0 0 24px' }}>
-                    We've opened WhatsApp with your catering enquiry details. Press send, and we will get back to you with custom menu options and pricing.
+                    We've opened WhatsApp with your events enquiry details. Press send, and we will get back to you with custom menu options and pricing.
                   </p>
                   <button 
                     className="btn btn-ghost" 
@@ -251,7 +251,7 @@ export default function CateringPage() {
             {/* Side Info Column */}
             <aside className="contact-card" style={{ padding: '30px', height: 'fit-content' }}>
               <div style={{ borderBottom: '1px solid var(--line)', paddingBottom: '14px', marginBottom: '18px' }}>
-                <h3 style={{ fontSize: '20px', fontWeight: '800' }}>Catering Details</h3>
+                <h3 style={{ fontSize: '20px', fontWeight: '800' }}>Event Details</h3>
               </div>
               <ul style={{ paddingLeft: '20px', margin: '0 0 20px 0', fontSize: '14.5px', lineHeight: '1.8', color: 'var(--ink-soft)' }}>
                 <li>**Order Notice**: Minimum 24-hour notice required for bulk events.</li>

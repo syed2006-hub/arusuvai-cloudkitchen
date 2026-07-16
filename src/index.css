@@ -954,10 +954,8 @@ header.scrolled .mobile-dropdown {
   gap: 16px;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
-  margin: 0 -20px 36px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  padding: 10px 0;
+  margin-bottom: 36px;
   transition: top .4s ease;
 }
 

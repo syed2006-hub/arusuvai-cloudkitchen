@@ -7,15 +7,18 @@ We have successfully restructured the single-page application into a fully-fledg
 ### 1. Router Setup
 - Installed `react-router-dom` in the project.
 - Configured `<BrowserRouter>`, `<Routes>`, and `<Route>` parameters in [App.jsx](file:///C:/Users/Dell/.gemini/antigravity/scratch/arusuvai-kitchen/src/App.jsx) to serve the following unique urls:
-  - `/` -> Home (Animated Hero, Best Seller Specialties, Testimonials, FAQ)
+  - `/` -> Home (Animated Hero, Best Seller Specialties, Bento Grid Gallery, Timings & Delivery Pillars, Testimonials, FAQ)
   - `/menu` -> Full Menu (Categories filter, Search bar)
-  - `/catering` -> Function Catering & Bulk Orders (15 to 150 guests)
+  - `/events` -> Function Events & Bulk Orders (15 to 150 guests)
   - `/about` -> Kitchen Story & Promises
-  - `/delivery` -> Delivery Areas & Timeline
-  - `/gallery` -> Bento Grid Food & Kitchen Masonry Showcase
-  - `/faq` -> Dedicated FAQ Accordion (Retained as fallback redirect)
   - `/contact` -> Contact details & Google Map location
   - `/order` -> Checkout Form, Cart Review Sidebar & Quick Add accordion
+  - `/privacy` -> Privacy Policy Page
+  - `/terms` -> Terms of Service Page
+  - `/catering` -> Redirects to Events route (to preserve backward compatibility)
+  - `/delivery` -> Redirects to Home (since Delivery is now embedded on the Home landing page)
+  - `/gallery` -> Redirects to Home (since Gallery is now embedded on the Home landing page)
+  - `/faq` -> Redirects to Home (since FAQ is now embedded on the Home landing page)
 
 ### 2. Global Cart State Context Provider
 - Created [CartContext.jsx](file:///C:/Users/Dell/.gemini/antigravity/scratch/arusuvai-kitchen/src/context/CartContext.jsx) using React Context API.
@@ -26,16 +29,35 @@ We have successfully restructured the single-page application into a fully-fledg
 - Established route-specific window tab titles using React's `useEffect` hooks:
   - Home: `Arusuvai CloudKitchen — Homemade South Indian Meals in Chennai`
   - Menu: `Full Menu — Arusuvai CloudKitchen`
-  - Catering: `Catering & Bulk Orders — Arusuvai CloudKitchen`
+  - Events: `Events & Bulk Orders — Arusuvai CloudKitchen`
   - About: `About Us — Arusuvai CloudKitchen`
-  - Delivery: `Delivery Info — Arusuvai CloudKitchen`
-  - Gallery: `Gallery — Arusuvai CloudKitchen`
-  - FAQ: `FAQ — Arusuvai CloudKitchen`
   - Contact: `Contact — Arusuvai CloudKitchen`
   - Order: `Order / Enquiry — Arusuvai CloudKitchen`
+  - Privacy: `Privacy Policy — Arusuvai CloudKitchen`
+  - Terms: `Terms of Service — Arusuvai CloudKitchen`
 
 ### 4. Interactive UX & Complete Mobile Responsiveness
 We have refined all pages and elements to ensure a flawless mobile experience:
+- **Reverted Menu Controls Style (Restored Previous Color Combination)**:
+  - Reverted the custom borders and layout padding/margins from the sticky search controls strip (`.menu-controls`).
+  - Removed `border-top`, `border-bottom`, negative margins, and wide horizontal paddings, restoring the original native, borderless look of our brand's menu container (`var(--bg-deep)` background with `padding: 10px 0`), matching the original color combination shown in the homepage screenshot.
+- **Simple Privacy Policy & Terms of Service Pages**:
+  - Created two clean legal page templates, `PrivacyPage.jsx` and `TermsPage.jsx`, using a readable boxed layouts that blends with the cream design system (`var(--card)`).
+  - Defined clear legal and operating terms for customers (preparation freshness timelines, booking deposit details, cash/UPI payment options, FSSAI hygiene practices, and contact support).
+  - Integrated their routes (`/privacy` and `/terms`) in `App.jsx`, ensuring the legal footer links resolve instantly.
+- **Renamed "Catering" to "Events"**:
+  - Renamed `CateringPage.jsx` to `EventsPage.jsx` and updated its internal component names, titles, and headers from "Catering" to "Events & Catering" or "Events".
+  - Swapped the navigation path from `/catering` to `/events` and visible text label from "Catering" to "Events" in both the desktop navbar, mobile hamburger list (`Header.jsx`), and footer links (`Footer.jsx`).
+  - Added a route fallback redirecting `/catering` hits back to `/events` inside `App.jsx` to maintain absolute backward compatibility.
+  - Cleaned up and deleted the old `CateringPage.jsx` file.
+- **Extended Welcome Splash Duration**:
+  - Increased the `transTimer` delay in `App.jsx` from `2000ms` to `2500ms` (adding an extra 0.5 seconds to the welcome phase).
+  - This allows the diagonal staggered corner trust tags and central brand title to stay visible for longer before playing the coordinate flight animation, making the intro sequence feel balanced and premium.
+- **Embedded Delivery & Gallery on Home Page**:
+  - Removed "Delivery" and "Gallery" from the desktop and mobile dropdown navigation menus in `Header.jsx` and `Footer.jsx` to streamline the site structure.
+  - Configured redirects in `App.jsx` pointing `/delivery` and `/gallery` back to `/` so direct URL hits still load successfully.
+  - Imported and rendered `<Gallery />` (the Bento grid showcasing food and hygiene processes) and `<Delivery />` (timings pillars and the 4-step ordering guide) directly on the landing page in `Home.jsx` wrapped inside `<div className="reveal">` scroll-reveal hooks.
+  - Deleted the now unused separate page files `DeliveryPage.jsx` and `GalleryPage.jsx`.
 - **Diagonal Staggered Corner Trust Tags (Splash Screen)**:
   - Re-engineered the trustworthy word animation on the welcome loading splash screen to pop in and out diagonally at the corners of the viewport, maintaining a highly premium and clean aesthetic.
   - Implemented 4 elegant border-outlined tags positioned fixed near the viewport corners (`top/bottom: 12%`, `left/right: 10%`), avoiding overlap with central elements on both mobile and desktop viewports.
@@ -112,7 +134,7 @@ We have refined all pages and elements to ensure a flawless mobile experience:
 
 ### 5. Bento Grid Gallery & Trust Elements
 - **Bento Grid Gallery**: Converted the gallery page into a fully-responsive **Bento Grid** featuring real food and process photography. Supports card spans (`bento-wide`, `bento-tall`) that seamlessly collapse into 1-column layouts on mobile viewports.
-- **Bulk Catering Enquiry**: Added a dedicated page `/catering` for event catering (15 to 150 guests) with custom packages and a formatted WhatsApp inquiry workflow.
+- **Bulk Catering Enquiry**: Added a dedicated page `/events` for event catering (15 to 150 guests) with custom packages and a formatted WhatsApp inquiry workflow.
 - **Chennai Verified Reviews**: Updated testimonials to reflect authentic, verified local Chennai purchases (e.g. Royapuram, Tondiarpet, Perambur, Washermenpet).
 - **Quality Assurances**: Integrated explicit hygiene & sourcing promises (RO water cooking, wood-pressed cold oils, zero added colors/MSG) on the homepage and catering page.
 
@@ -133,8 +155,8 @@ npm run build
   - `dist/assets/dish-dosa-BB1AsgED.jpg` (157.89 kB)
   - `dist/assets/about-kitchen-uwkkuY_E.jpg` (165.81 kB)
   - `dist/assets/hero-thali-BqTO1zBI.jpg` (319.81 kB)
-  - `dist/assets/index-BPMClO3z.css` (28.44 kB)
-  - `dist/assets/index-CaFNXeKq.js` (297.76 kB)
+  - `dist/assets/index-DC3Vocdx.css` (28.37 kB)
+  - `dist/assets/index-BgUc1Oiw.js` (302.99 kB)
 
 ---
 

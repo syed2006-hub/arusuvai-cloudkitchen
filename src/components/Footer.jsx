@@ -35,7 +35,7 @@ export default function Footer() {
           <div>
             <h4>Explore</h4>
             <Link to="/menu">Menu</Link>
-            <Link to="/catering">Catering</Link>
+            <Link to="/events">Events</Link>
             <Link to="/order">Order</Link>
           </div>
           
