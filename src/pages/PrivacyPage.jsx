@@ -6,8 +6,8 @@ export default function PrivacyPage() {
   }, []);
 
   return (
-    <div style={{ paddingTop: '120px', paddingBottom: '80px' }}>
-      <section className="sec">
+    <div style={{ paddingTop: '70px', paddingBottom: '80px' }}>
+      <section className="sec" style={{ paddingTop: '10px' }}>
         <div className="wrap" style={{ maxWidth: '720px' }}>
           <div className="sec-head" style={{ marginBottom: '40px' }}>
             <div className="eyebrow">Legal</div>

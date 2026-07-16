@@ -7,7 +7,7 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <div style={{ paddingTop: '100px' }}>
+    <div style={{ paddingTop: '70px' }}>
       <About />
     </div>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import thaliImg from '../assets/hero-thali.jpg';
 
 export default function Hero({ splashDone }) {
@@ -16,8 +17,15 @@ export default function Hero({ splashDone }) {
             No preservatives. No colours. No shortcuts — just the food your amma would approve of, cooked fresh and sent straight to your door.
           </p>
           <div className="cta-row">
-            <a href="#order" className="btn btn-primary">Order on WhatsApp →</a>
-            <a href="#menu" className="btn btn-ghost">View Menu</a>
+            <a 
+              href="https://wa.me/919342561101?text=Hi%20Arusuvai%20CloudKitchen%2C%20I%27d%20like%20to%20order" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn btn-primary"
+            >
+              Order on WhatsApp →
+            </a>
+            <Link to="/menu" className="btn btn-ghost">View Menu</Link>
           </div>
           <div className="trust-badges">
             <div className="badge"><span className="dot"></span>0% Preservatives</div>

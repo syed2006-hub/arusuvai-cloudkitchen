@@ -71,7 +71,7 @@ export default function About() {
 
   return (
     <>
-      <section className="sec" id="about" style={{ paddingBottom: '40px' }}>
+      <section className="sec" id="about" style={{ paddingBottom: '40px', paddingTop: '10px' }}>
         <div className="wrap">
           {/* Story Sub-section */}
           <div className="contact-grid" style={{ alignItems: 'center', marginBottom: '80px', gap: '50px' }}>

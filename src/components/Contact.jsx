@@ -9,7 +9,7 @@ export default function Contact() {
   const instagramUrl = "https://www.instagram.com/syed_rizwan_asr/";
 
   return (
-    <section className="sec" id="contact">
+    <section className="sec" id="contact" style={{ paddingTop: '10px' }}>
       <div className="wrap">
         <div className="sec-head">
           <div className="eyebrow">Contact</div>

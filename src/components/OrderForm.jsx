@@ -46,6 +46,13 @@ export default function OrderForm() {
     if (formData.mode === 'delivery' && !formData.address.trim()) {
       tempErrors.address = 'Please enter your delivery address';
     }
+
+    // Verify cart has at least 1 item
+    const totalQty = Object.values(cart).reduce((sum, item) => sum + item.qty, 0);
+    if (totalQty === 0) {
+      tempErrors.cart = 'Please select at least one item from the menu to proceed.';
+    }
+
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
@@ -74,7 +81,7 @@ export default function OrderForm() {
                  (formData.note ? `*Notes:* ${encodeURIComponent(formData.note)}%0A` : '') +
                  `%0A*Items:*%0A${encodeURIComponent(itemsText)}%0A%0A` +
                  `*Subtotal:* ₹${cartTotal}%0A%0A` +
-                 `Sent from arusuvaicloudkitchen.com`;
+                 `Sent from https://arusuvai-cloudkitchens.vercel.app`;
 
     const waUrl = `https://wa.me/919342561101?text=${text}`;
     window.open(waUrl, '_blank', 'noopener,noreferrer');
@@ -88,7 +95,7 @@ export default function OrderForm() {
   const totalQty = Object.values(cart).reduce((sum, item) => sum + item.qty, 0);
 
   return (
-    <section className="sec" id="order">
+    <section className="sec" id="order" style={{ paddingTop: '10px' }}>
       <div className="wrap">
         <div className="sec-head">
           <div className="eyebrow">Order / Enquiry</div>
@@ -110,7 +117,7 @@ export default function OrderForm() {
                       value={formData.name}
                       onChange={handleChange}
                     />
-                    {errors.name && <span style={{ color: 'var(--clay)', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.name}</span>}
+                    {errors.name && <span style={{ color: '#d32f2f', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.name}</span>}
                   </div>
                   <div className="field">
                     <label htmlFor="phone">Phone number</label>
@@ -121,7 +128,7 @@ export default function OrderForm() {
                       value={formData.phone}
                       onChange={handlePhoneChange}
                     />
-                    {errors.phone && <span style={{ color: 'var(--clay)', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.phone}</span>}
+                    {errors.phone && <span style={{ color: '#d32f2f', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.phone}</span>}
                   </div>
                 </div>
 
@@ -135,7 +142,7 @@ export default function OrderForm() {
                       value={formData.whatsapp}
                       onChange={handleChange}
                     />
-                    {errors.whatsapp && <span style={{ color: 'var(--clay)', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.whatsapp}</span>}
+                    {errors.whatsapp && <span style={{ color: '#d32f2f', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.whatsapp}</span>}
                   </div>
                   <div className="field">
                     <label htmlFor="mode">Delivery or pickup</label>
@@ -157,7 +164,7 @@ export default function OrderForm() {
                       onChange={handleChange}
                       style={{ minHeight: '70px' }}
                     ></textarea>
-                    {errors.address && <span style={{ color: 'var(--clay)', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.address}</span>}
+                    {errors.address && <span style={{ color: '#d32f2f', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.address}</span>}
                   </div>
                 )}
 
@@ -192,6 +199,12 @@ export default function OrderForm() {
                   ></textarea>
                 </div>
                 
+                {errors.cart && (
+                  <div style={{ color: '#d32f2f', background: '#ffebee', padding: '12px 16px', borderRadius: '12px', marginBottom: '20px', fontSize: '14px', fontWeight: '700', border: '1px solid #ffcdd2' }}>
+                    ⚠️ {errors.cart}
+                  </div>
+                )}
+
                 <button type="submit" className="btn btn-primary submit-btn">
                   Send Order on WhatsApp →
                 </button>
@@ -234,7 +247,7 @@ export default function OrderForm() {
             
             {totalQty === 0 ? (
               <p style={{ color: 'var(--ink-soft)', fontSize: '14px', margin: '0 0 20px 0', lineHeight: '1.6' }}>
-                No items yet. Add from the list below, or leave empty and describe what you'd like in the notes.
+                No items selected yet. Add from the list below to build your order!
               </p>
             ) : (
               <>

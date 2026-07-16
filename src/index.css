@@ -2072,3 +2072,77 @@ footer a:hover {
     padding: 6px 10px;
   }
 }
+
+/* ---------- Small Menu Hero Section ---------- */
+.menu-hero-small {
+  padding: 10px 0 10px;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.menu-hero-small-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.menu-hero-small-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-hero-small-text h2 {
+  font-size: 42px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+
+.menu-hero-small-text p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 580px;
+}
+
+.menu-hero-small-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.menu-hero-shaped-img {
+  max-height: 220px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply; /* Blends the white background perfectly into the cream background! */
+  filter: contrast(1.02); /* Enhances the image clarity on the blended background */
+  pointer-events: none;
+  animation: floatY 6s ease-in-out infinite; /* Add a subtle floating animation to the shaped food! */
+}
+
+@media(max-width: 768px) {
+  .menu-hero-small {
+    padding: 20px 0 0;
+  }
+  
+  .menu-hero-small-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .menu-hero-small-text p {
+    margin: 0 auto;
+  }
+  
+  .menu-hero-small-image {
+    height: 160px;
+  }
+  
+  .menu-hero-shaped-img {
+    max-height: 170px;
+  }
+}

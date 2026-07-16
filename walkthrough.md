@@ -38,6 +38,25 @@ We have successfully restructured the single-page application into a fully-fledg
 
 ### 4. Interactive UX & Complete Mobile Responsiveness
 We have refined all pages and elements to ensure a flawless mobile experience:
+- **Reduced Top Spacing on All Inner Pages**:
+  - Decreased the top page padding on all secondary routes (`/menu`, `/events`, `/about`, `/contact`, `/order`, `/privacy`, `/terms`) from `100px`/`120px` down to a compact `70px`. This positions the headers and layouts directly beneath the fixed site navbar without placing excessive gaps or white space.
+- **Events Page Restructured (Form at the Top)**:
+  - Moved the booking form and side details column to the top of [EventsPage.jsx](file:///C:/Users/Dell/.gemini/antigravity/scratch/arusuvai-kitchen/src/pages/EventsPage.jsx) directly under the main section header.
+  - Relocated the four FSSAI hygiene quality assurance pillars block to the bottom of the page, below the checkout grid.
+  - Reduced layout spacing (changing top paddings and container margins) to ensure form fields sit closely together and load instantly on smaller screens.
+- **Updated Vercel Sent-From Address**:
+  - Changed the formatted WhatsApp order footer address in both [OrderForm.jsx](file:///C:/Users/Dell/.gemini/antigravity/scratch/arusuvai-kitchen/src/components/OrderForm.jsx) and [EventsPage.jsx](file:///C:/Users/Dell/.gemini/antigravity/scratch/arusuvai-kitchen/src/pages/EventsPage.jsx) to `Sent from https://arusuvai-cloudkitchens.vercel.app`.
+- **Compact Menu Hero with Floating Shaped Food Image**:
+  - Restructured the menu page hero section inside [MenuPage.jsx](file:///C:/Users/Dell/.gemini/antigravity/scratch/arusuvai-kitchen/src/pages/MenuPage.jsx) into a simple, small-height banner container (`.menu-hero-small`).
+  - Replaced the large squared kitchen split column with a centered, transparent-blended South Indian food image (our high-quality generated masala dosa).
+  - Used `mix-blend-mode: multiply` in CSS to mask out the solid white background of the image, causing the raw dosa leaf arrangement to float natively on the cream background as a shaped transparent image, completely free of any square or circular border boxes.
+  - Linked a subtle vertical floating animation (`floatY`) to the shaped image to enhance the premium visual design.
+- **Direct WhatsApp CTA link in Home Hero**:
+  - Changed the "Order on WhatsApp" button in the main homepage hero section [Hero.jsx](file:///C:/Users/Dell/.gemini/antigravity/scratch/arusuvai-kitchen/src/components/Hero.jsx) from pointing to a broken hash anchor `#order` to opening the WhatsApp wa.me API link directly.
+  - Swapped the "View Menu" button to use React Router's `<Link>` to redirect cleanly to `/menu`.
+- **Empty Cart Validation & Red Error Messages**:
+  - Added cart validation in `validate()` inside [OrderForm.jsx](file:///C:/Users/Dell/.gemini/antigravity/scratch/arusuvai-kitchen/src/components/OrderForm.jsx). If the cart is empty when clicking send, it shows a clear warning block: `"Please select at least one item from the menu to proceed."`.
+  - Updated all form validation error messages in [OrderForm.jsx](file:///C:/Users/Dell/.gemini/antigravity/scratch/arusuvai-kitchen/src/components/OrderForm.jsx) and [EventsPage.jsx](file:///C:/Users/Dell/.gemini/antigravity/scratch/arusuvai-kitchen/src/pages/EventsPage.jsx) to display in standard red (`#d32f2f`) instead of the terracotta text, making errors stand out prominently.
 - **Reverted Menu Controls Style (Restored Previous Color Combination)**:
   - Reverted the custom borders and layout padding/margins from the sticky search controls strip (`.menu-controls`).
   - Removed `border-top`, `border-bottom`, negative margins, and wide horizontal paddings, restoring the original native, borderless look of our brand's menu container (`var(--bg-deep)` background with `padding: 10px 0`), matching the original color combination shown in the homepage screenshot.
@@ -111,7 +130,7 @@ We have refined all pages and elements to ensure a flawless mobile experience:
   - Added smooth CSS transitions using cubic-bezier spring curves (`cubic-bezier(0.34, 1.56, 0.64, 1)`):
     - When clicked, the circular add button (`.add-btn`) shrinks (`scale(0)`) and rotates `180deg` out of sight.
     - Concurrently, the pill-shaped quantity controller (`.qty-control`) springs into view, scaling from `0` to `1` and rotating `90deg` clockwise from the right margin into place.
-    - Reversing the count back to `0` triggers the reverse spring rotations.
+    - Reversing the count back to `0` to trigger the reverse spring rotations.
 - **Smooth Cart Bar Transition Animations**:
   - Refactored `CartBar.jsx` to remain mounted in the DOM. This allows the smooth CSS `.45s` cubic-bezier slide-in and slide-out transitions to perform fully when items are added or removed.
   - Dynamically hides the floating cart bar on the checkout/order page (`/order`) itself via `useLocation` to avoid duplicate layouts.
@@ -155,8 +174,9 @@ npm run build
   - `dist/assets/dish-dosa-BB1AsgED.jpg` (157.89 kB)
   - `dist/assets/about-kitchen-uwkkuY_E.jpg` (165.81 kB)
   - `dist/assets/hero-thali-BqTO1zBI.jpg` (319.81 kB)
-  - `dist/assets/index-DC3Vocdx.css` (28.37 kB)
-  - `dist/assets/index-BgUc1Oiw.js` (302.99 kB)
+  - `dist/assets/menu_hero_dosa-BM8OOted.png` (583.65 kB)
+  - `dist/assets/index-VWLXXTcK.css` (29.29 kB)
+  - `dist/assets/index-CZDOUSAH.js` (304.20 kB)
 
 ---
 

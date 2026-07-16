@@ -10,7 +10,7 @@ export default function OrderPage() {
   }, []);
 
   return (
-    <div style={{ paddingTop: '100px' }}>
+    <div style={{ paddingTop: '70px' }}>
       <OrderForm 
         cart={cart}
         onAdd={addToCart}

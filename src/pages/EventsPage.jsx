@@ -68,7 +68,7 @@ export default function EventsPage() {
                  (formData.time ? `*Time:* ${encodeURIComponent(formData.time)}%0A` : '') +
                  (formData.menuNote ? `%0AMenu Preferences:%0A${encodeURIComponent(formData.menuNote)}%0A` : '') +
                  (formData.note ? `%0ASpecial Instructions:%0A${encodeURIComponent(formData.note)}%0A` : '') +
-                 `%0ASent from arusuvaicloudkitchen.com`;
+                 `%0ASent from https://arusuvai-cloudkitchens.vercel.app`;
 
     const waUrl = `https://wa.me/919342561101?text=${text}`;
     window.open(waUrl, '_blank', 'noopener,noreferrer');
@@ -77,42 +77,19 @@ export default function EventsPage() {
   };
 
   return (
-    <div style={{ paddingTop: '100px' }}>
-      <section className="sec" style={{ paddingBottom: '40px' }}>
+    <div style={{ paddingTop: '70px' }}>
+      <section className="sec" style={{ paddingBottom: '40px', paddingTop: '10px' }}>
         <div className="wrap">
-          <div className="sec-head">
+          <div className="sec-head" style={{ marginBottom: '24px' }}>
             <div className="eyebrow">Events & Catering</div>
             <h2>Bulk orders & events <span className="italic">undertaken.</span></h2>
-            <p className="lede" style={{ marginTop: '12px', maxWidth: '700px' }}>
+            <p className="lede" style={{ marginTop: '8px', maxWidth: '700px', fontSize: '15px' }}>
               We undertake catering orders from **15 to 150 plates** for poojas, birthdays, family gatherings, corporate lunches, and housewarming functions. Prepared in home kitchen hygiene, packaged securely, and delivered fresh to your venue.
             </p>
           </div>
 
-          {/* Quality Assurance Badges */}
-          <div className="pillars" style={{ marginBottom: '60px' }}>
-            <div className="pillar" style={{ textAlign: 'center', padding: '32px 20px' }}>
-              <span style={{ fontSize: '32px', display: 'block', marginBottom: '10px' }}>🍃</span>
-              <h4 style={{ fontSize: '17px', fontWeight: '800', margin: '0 0 6px 0' }}>100% Home Sourcing</h4>
-              <p style={{ fontSize: '13.5px', color: 'var(--ink-soft)', margin: 0 }}>Daily handpicked fresh vegetables & high-grade lentils.</p>
-            </div>
-            <div className="pillar" style={{ textAlign: 'center', padding: '32px 20px' }}>
-              <span style={{ fontSize: '32px', display: 'block', marginBottom: '10px' }}>🏺</span>
-              <h4 style={{ fontSize: '17px', fontWeight: '800', margin: '0 0 6px 0' }}>Cold-Pressed Oils</h4>
-              <p style={{ fontSize: '13.5px', color: 'var(--ink-soft)', margin: 0 }}>Cooked using premium wood-pressed sesame and peanut oils.</p>
-            </div>
-            <div className="pillar" style={{ textAlign: 'center', padding: '32px 20px' }}>
-              <span style={{ fontSize: '32px', display: 'block', marginBottom: '10px' }}>❌</span>
-              <h4 style={{ fontSize: '17px', fontWeight: '800', margin: '0 0 6px 0' }}>0% Added MSG / Colours</h4>
-              <p style={{ fontSize: '13.5px', color: 'var(--ink-soft)', margin: 0 }}>No chemical flavor enhancers, artificial color powders, or baking soda.</p>
-            </div>
-            <div className="pillar" style={{ textAlign: 'center', padding: '32px 20px' }}>
-              <span style={{ fontSize: '32px', display: 'block', marginBottom: '10px' }}>💧</span>
-              <h4 style={{ fontSize: '17px', fontWeight: '800', margin: '0 0 6px 0' }}>RO Purified Cooking</h4>
-              <p style={{ fontSize: '13.5px', color: 'var(--ink-soft)', margin: 0 }}>Pure reverse-osmosis purified water used for all cooking and washing.</p>
-            </div>
-          </div>
-
-          <div className="order-grid">
+          {/* Form & Sidebar Grid (Form at the Top!) */}
+          <div className="order-grid" style={{ marginBottom: '50px' }}>
             {/* Events Form */}
             <div>
               {!submitted ? (
@@ -127,7 +104,7 @@ export default function EventsPage() {
                         value={formData.name}
                         onChange={handleChange}
                       />
-                      {errors.name && <span style={{ color: 'var(--clay)', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.name}</span>}
+                      {errors.name && <span style={{ color: '#d32f2f', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.name}</span>}
                     </div>
                     <div className="field">
                       <label htmlFor="phone">Phone number</label>
@@ -138,7 +115,7 @@ export default function EventsPage() {
                         value={formData.phone}
                         onChange={handlePhoneChange}
                       />
-                      {errors.phone && <span style={{ color: 'var(--clay)', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.phone}</span>}
+                      {errors.phone && <span style={{ color: '#d32f2f', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.phone}</span>}
                     </div>
                   </div>
 
@@ -152,7 +129,7 @@ export default function EventsPage() {
                         value={formData.whatsapp}
                         onChange={handleChange}
                       />
-                      {errors.whatsapp && <span style={{ color: 'var(--clay)', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.whatsapp}</span>}
+                      {errors.whatsapp && <span style={{ color: '#d32f2f', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.whatsapp}</span>}
                     </div>
                     <div className="field">
                       <label htmlFor="event">Event / occasion type</label>
@@ -176,7 +153,7 @@ export default function EventsPage() {
                         value={formData.date}
                         onChange={handleChange}
                       />
-                      {errors.date && <span style={{ color: 'var(--clay)', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.date}</span>}
+                      {errors.date && <span style={{ color: '#d32f2f', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.date}</span>}
                     </div>
                     <div className="field">
                       <label htmlFor="guests">Guest Count (plates)</label>
@@ -188,7 +165,7 @@ export default function EventsPage() {
                         value={formData.guests}
                         onChange={handleChange}
                       />
-                      {errors.guests && <span style={{ color: 'var(--clay)', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.guests}</span>}
+                      {errors.guests && <span style={{ color: '#d32f2f', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.guests}</span>}
                     </div>
                   </div>
 
@@ -263,6 +240,30 @@ export default function EventsPage() {
                 ℹ️ For customized menus larger than 150 plates or specific requests, message us directly via WhatsApp.
               </div>
             </aside>
+          </div>
+
+          {/* Quality Assurance Badges (Now at the bottom of the page!) */}
+          <div className="pillars" style={{ marginTop: '50px' }}>
+            <div className="pillar" style={{ textAlign: 'center', padding: '32px 20px' }}>
+              <span style={{ fontSize: '32px', display: 'block', marginBottom: '10px' }}>🍃</span>
+              <h4 style={{ fontSize: '17px', fontWeight: '800', margin: '0 0 6px 0' }}>100% Home Sourcing</h4>
+              <p style={{ fontSize: '13.5px', color: 'var(--ink-soft)', margin: 0 }}>Daily handpicked fresh vegetables & high-grade lentils.</p>
+            </div>
+            <div className="pillar" style={{ textAlign: 'center', padding: '32px 20px' }}>
+              <span style={{ fontSize: '32px', display: 'block', marginBottom: '10px' }}>🏺</span>
+              <h4 style={{ fontSize: '17px', fontWeight: '800', margin: '0 0 6px 0' }}>Cold-Pressed Oils</h4>
+              <p style={{ fontSize: '13.5px', color: 'var(--ink-soft)', margin: 0 }}>Cooked using premium wood-pressed sesame and peanut oils.</p>
+            </div>
+            <div className="pillar" style={{ textAlign: 'center', padding: '32px 20px' }}>
+              <span style={{ fontSize: '32px', display: 'block', marginBottom: '10px' }}>❌</span>
+              <h4 style={{ fontSize: '17px', fontWeight: '800', margin: '0 0 6px 0' }}>0% Added MSG / Colours</h4>
+              <p style={{ fontSize: '13.5px', color: 'var(--ink-soft)', margin: 0 }}>No chemical flavor enhancers, artificial color powders, or baking soda.</p>
+            </div>
+            <div className="pillar" style={{ textAlign: 'center', padding: '32px 20px' }}>
+              <span style={{ fontSize: '32px', display: 'block', marginBottom: '10px' }}>💧</span>
+              <h4 style={{ fontSize: '17px', fontWeight: '800', margin: '0 0 6px 0' }}>RO Purified Cooking</h4>
+              <p style={{ fontSize: '13.5px', color: 'var(--ink-soft)', margin: 0 }}>Pure reverse-osmosis purified water used for all cooking and washing.</p>
+            </div>
           </div>
         </div>
       </section>
